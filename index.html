@@ -1,425 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lista de Compras</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #f4f6f8;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    thead {
-      background-color: #e9ecef;
-    }
-
-    th, td {
-      padding: 10px;
-      border: 1px solid #dcdcdc;
-      text-align: center;
-    }
-
-    td.item {
-      text-align: left;
-      font-weight: 500;
-    }
-
-    input[type="number"] {
-      width: 100%;
-      padding: 6px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      text-align: center;
-    }
-
-    input[type="checkbox"] {
-      transform: scale(1.2);
-      cursor: pointer;
-    }
-
-    .total-item {
-      font-weight: bold;
-      background-color: #fafafa;
-    }
-
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 25px;
-      flex-wrap: wrap;
-    }
-
-    .total-geral {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .info {
-      font-size: 13px;
-      color: #666;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<div class="container">
-  <h1>Lista de Compras Familia Silva (Wally e Mayara)</h1>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">Lista de Compras Família Silva (Wally e Mayara)</h1>
+    </header>
 
-  <table id="tabelaCompras">
-    <thead>
-      <tr>
-        <th>✔</th>
-        <th>Item</th>
-        <th>Qtd</th>
-        <th>Valor (R$)</th>
-        <th>Total (R$)</th>
-      </tr>
-    </thead>
-      <tbody>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Feijão</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Macarrão</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Leite</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Flocão</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Milho</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Molho</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Alho</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Leite condensado</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Creme de leite</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Manteiga</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Maionese</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Farofa Swift</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Pão</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Ovo</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Frango</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Carne</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Açúcar</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Shampoo</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Condicionador</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Pasta</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Cloro</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Sabão</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Desinfetante</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Amaciante</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Areia p/ gato</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Desodorante</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Detergente</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-<tr>
-  <td><input type="checkbox" oninput="calcular()"></td>
-  <td class="item">Bucha</td>
-  <td><input type="number" min="0" oninput="calcular()"></td>
-  <td><input type="number" step="0.01" min="0" oninput="calcular()"></td>
-  <td class="total-item">0.00</td>
-</tr>
-      </tbody>
-    </table>
+    <section class="card">
+      <div class="table-wrap">
+        <table id="tabelaCompras" class="table">
+          <thead>
+            <tr>
+              <th class="col-check">✔</th>
+              <th class="col-item">Item</th>
+              <th class="col-qtd">Qtd</th>
+              <th class="col-valor">Valor (R$)</th>
+              <th class="col-total">Total (R$)</th>
+            </tr>
+          </thead>
 
-  <div class="footer">
-    <div class="info">Somente itens marcados entram no total geral.</div>
-    <div class="total-geral" id="totalGeral">Total Geral: R$ 0.00</div>
-    <button type="button" onclick="alert('BOTÃO FUNCIONA')">
-  Enviar para Planilha
-</button>
-  </div>
-</div>
+          <tbody id="listaItens"></tbody>
+        </table>
+      </div>
 
-<script>
-function calcular() {
-  const linhas = document.querySelectorAll("#tabelaCompras tbody tr");
-  let totalGeral = 0;
-  let dados = [];
+      <!-- ✅ TEMPLATE FORA DA TABLE (correto) -->
+<template id="template-item-fixo">
+  <tr data-fixo="true">
+    <td><input type="checkbox" /></td>
+    <td class="item"></td>
 
-  linhas.forEach(linha => {
-    const check = linha.children[0].querySelector("input").checked;
-    const qtd = parseFloat(linha.children[2].querySelector("input").value) || 0;
-    const valor = parseFloat(linha.children[3].querySelector("input").value) || 0;
-    const totalItem = qtd * valor;
+    <!-- QTD: teclado numérico -->
+    <td>
+      <input
+        type="number"
+        min="0"
+        step="1"
+        inputmode="numeric"
+        pattern="[0-9]*"
+      />
+    </td>
 
-    linha.children[4].innerText = totalItem.toFixed(2);
+    <!-- VALOR: teclado numérico com decimal -->
+    <td>
+      <input
+        type="number"
+        min="0"
+        step="0.01"
+        inputmode="decimal"
+        pattern="[0-9]*[.,]?[0-9]*"
+      />
+    </td>
 
-    if (check) totalGeral += totalItem;
-
-    dados.push({
-      item: linha.children[1].innerText,
-      quantidade: qtd,
-      valor: valor,
-      selecionado: check
-    });
-  });
-
-  try {
-    localStorage.setItem("listaCompras", JSON.stringify(dados));
-  } catch (e) {
-    console.warn("LocalStorage indisponível");
-  }
-
-  document.getElementById("totalGeral").innerText =
-    "Total Geral: R$ " + totalGeral.toFixed(2);
-}
-
-function carregarDados() {
-  let dados = [];
-
-  try {
-    dados = JSON.parse(localStorage.getItem("listaCompras")) || [];
-  } catch (e) {
-    console.warn("Falha ao carregar localStorage");
-    return;
-  }
-
-  const linhas = document.querySelectorAll("#tabelaCompras tbody tr");
-
-  dados.forEach((dado, index) => {
-    if (linhas[index]) {
-      linhas[index].children[0].querySelector("input").checked = dado.selecionado;
-      linhas[index].children[2].querySelector("input").value = dado.quantidade;
-      linhas[index].children[3].querySelector("input").value = dado.valor;
-    }
-  });
-
-  calcular();
-}
-
-window.onload = carregarDados;
-</script>
+    <td class="total-item">0.00</td>
+  </tr>
+</template>
 
 
-<script>
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbzN7q12653-hOcmU2S98lIUm7WPwslixL9mEYh4KgD9qLt22B4ILWf1hCLUHcJh266Y/exec";
+      <div class="add-form">
+        <div class="add-field">
+          <label for="novoItemNome">Novo item</label>
+          <input id="novoItemNome" type="text" placeholder="Ex: Arroz" />
+        </div>
 
-function enviarParaPlanilha() {
-  console.log("BOTÃO CLICADO");
+        <button id="btnAdicionar" type="button" class="btn btn-secondary">
+          Adicionar
+        </button>
+      </div>
 
-  const linhas = document.querySelectorAll("#tabelaCompras tbody tr");
-  const mesAtual = new Date().toLocaleString("pt-BR", {
-    month: "long",
-    year: "numeric"
-  });
+      <div class="footer">
+        <div class="info">Somente itens marcados entram no total geral.</div>
 
-  let enviados = 0;
+        <div class="total-geral" id="totalGeral">
+          Total Geral: R$ 0.00
+        </div>
 
-  linhas.forEach(linha => {
-    const check = linha.children[0].querySelector("input").checked;
-    if (!check) return;
+        <div class="actions">
+          <button id="btnEnviar" type="button" class="btn btn-primary">
+            Enviar para Planilha
+          </button>
 
-    const item = linha.children[1].innerText;
-    const quantidade = parseFloat(linha.children[2].querySelector("input").value) || 0;
-    const valor = parseFloat(linha.children[3].querySelector("input").value) || 0;
-    const total = quantidade * valor;
+          <button id="btnApagar" type="button" class="btn btn-danger">
+            Apagar tudo
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    fetch(SHEET_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        item,
-        quantidade,
-        valor,
-        total,
-        mes: mesAtual
-      })
-    })
-    .then(r => r.text())
-    .then(() => enviados++)
-    .catch(err => console.error("Erro:", err));
-  });
-
-  alert("Envio iniciado. Itens selecionados serão gravados.");
-}
-</script>
-
-
-
-
-
-
+  <script src="app.js"></script>
 </body>
 </html>
